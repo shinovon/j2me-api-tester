@@ -200,12 +200,13 @@ public class A extends MIDlet implements CommandListener {
 				"YES", "com.nokia.mid.ui.DeviceControl",
 				"YES", "com.nokia.mid.ui.DirectGraphics"
 		});
+		api("Nokia Sound", "com.nokia.mid.sound.Sound");
 		api("Nokia IAPInfo", "com.nokia.mid.iapinfo.IAPInfo");
 		api("Nokia In-App Payment", "com.nokia.payment.NPayManager");
 		api("Nokia In-App Purchase", "com.nokia.mid.payment.IAPClientPaymentManager");
 		api("Nokia LocationUtil", "com.nokia.mid.location.LocationUtil");
 		api("Nokia SMS", "com.nokia.mid.messaging.Message");
-		api("Nokia Sound", "com.nokia.mid.sound.Sound");
+		api("Nokia M3D", "com.nokia.mid.m3d.M3D");
 		api("Project Capuchin", new String[] {
 				"", ":com.sonyericsson.capuchin.version",
 				"YES", "com.sonyericsson.capuchin.FlashCanvas"
