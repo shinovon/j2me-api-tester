@@ -198,7 +198,7 @@ public class A extends MIDlet implements CommandListener {
 		// OEM
 		api("Mascot Capsule", "com.mascotcapsule.micro3d.v3.Graphics3D");
 		api("Nokia UI", new String[] {
-				// S60v3.2+, s60 with nokia ui v1.6+, asha
+				// S60v3.2+, s40 with nokia ui v1.6+, asha
 				"", ":com.nokia.mid.ui.version",
 				"1.6", "com.nokia.mid.ui.VirtualKeyboard",
 				"1.4", "com.nokia.mid.ui.SoftNotification",
