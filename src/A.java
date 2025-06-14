@@ -39,22 +39,22 @@ public class A extends MIDlet implements CommandListener {
 			StringBuffer sb = new StringBuffer();
 			
 			if ((s = System.getProperty("java.vm.name")) != null) {
-				sb.append(s + ", " + System.getProperty("java.vm.vendor") + "\n");
+				sb.append(s).append(", ").append(System.getProperty("java.vm.vendor"));
 				if ((s = System.getProperty("java.vm.version")) != null) {
-					sb.append(s + "\n");
+					sb.append('\n').append(s);
 				}
 				if ((s = System.getProperty("java.vm.specification.name")) != null) {
-					sb.append(s + "\n");
+					sb.append('\n').append(s);
 				}
 			} else if ((s = System.getProperty("com.ibm.oti.configuration")) != null) {
-				sb.append("J9 VM, IBM (" + s + ")\n\n");
+				sb.append("J9 VM, IBM (").append(s).append(')');
 				if ((s = System.getProperty("java.fullversion")) != null) {
-					sb.append(s);
+					sb.append("\n\n").append(s);
 				}
 			} else if ((s = System.getProperty("java.fullversion")) != null) {
 				sb.append(s);
 			} else if ((s = System.getProperty("com.oracle.jwc.version")) != null) {
-				sb.append("OJWC v" + s + ", Oracle\n");
+				sb.append("OJWC v").append(s).append(", Oracle");
 			} else if (checkClass("com.sun.cldchi.io.ConsoleOutputStream")
 					|| checkClass("com.sun.cldchi.jvm.JVM")) {
 				sb.append("CLDC Hotspot Implementation, Sun");
@@ -89,12 +89,12 @@ public class A extends MIDlet implements CommandListener {
 				sb.append("Unknown");
 			}
 			if ((s = System.getProperty("java.version")) != null) {
-				sb.append("\nJava " + s + ", " + System.getProperty("java.vendor") + "\n");
+				sb.append("\nJava ").append(s).append(", ").append(System.getProperty("java.vendor"));
 			}
 			if ((s = System.getProperty("os.name")) != null) {
-				sb.append("\n"+ s + " " + System.getProperty("os.version") + " " + System.getProperty("os.arch") + "\n");
+				sb.append('\n').append(s).append(' ').append(System.getProperty("os.version")).append(' ').append(System.getProperty("os.arch"));
 			}
-			StringItem i = new StringItem("", sb.toString());
+			StringItem i = new StringItem("", sb.append('\n').toString());
 			i.setFont(smallplainfont);
 			form.append(i);
 		}
