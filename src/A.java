@@ -123,8 +123,14 @@ public class A extends MIDlet implements CommandListener {
 		});
 		api("JSR-75 FileConnection", "javax.microedition.io.file.FileConnection");
 		api("JSR-75 PIM", "javax.microedition.pim.PIM");
-		api("JSR-82 Bluetooth", "javax.bluetooth.LocalDevice");
-		api("JSR-82 OBEX", "javax.obex.HeaderSet");
+		api("JSR-82 Bluetooth", new String[] {
+				"", ":bluetooth.api.version",
+				"YES", "javax.bluetooth.LocalDevice"
+		});
+		api("JSR-82 OBEX", new String[] {
+				"", ":obex.api.version",
+				"YES", "javax.obex.HeaderSet"
+		});
 		api("JSR-120 WMA", "javax.wireless.messaging.Message");
 		api("JSR-135 MMAPI", new String[] {
 				"", ":microedition.media.version",
@@ -132,7 +138,7 @@ public class A extends MIDlet implements CommandListener {
 		});
 		api("JSR-172 RPC", "javax.microedition.xml.rpc.Type");
 		api("JSR-172 XML Parser", "javax.xml.parsers.SAXParser");
-		api("JSR-177 ADPU", "javax.microedition.apdu.ADPUConnection");
+		api("JSR-177 APDU", "javax.microedition.apdu.APDUConnection");
 		api("JSR-177 Crypto", "javax.crypto.Cipher");
 		api("JSR-177 JCRMI", "javax.microedition.jcrmi.JavaCardRMIConnection");
 		api("JSR-177 PKI", "javax.microedition.pki.Certificate");
@@ -213,7 +219,10 @@ public class A extends MIDlet implements CommandListener {
 		});
 		api("Samsung", "com.samsung.util.AudioClip");
 		api("Sprint Media", "com.sprintpcs.media.Player");
-		api("Pigler", "org.pigler.api.PiglerAPI");
+		api("Pigler", new String[] {
+				"", ":org.pigler.api.version",
+				"YES", "org.pigler.api.PiglerAPI"
+		});
 		// TODO other OEMs, v-appli
 		api("Java RMI", "java.rmi.Remote");
 		api("Java NIO", "java.nio.Buffer");
