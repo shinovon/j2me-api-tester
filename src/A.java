@@ -131,7 +131,11 @@ public class A extends MIDlet implements CommandListener {
 				"", ":obex.api.version",
 				"YES", "javax.obex.HeaderSet"
 		});
-		api("JSR-120 WMA", "javax.wireless.messaging.Message");
+		api("JSR-120/JSR-205 WMA", new String[] {
+				"", ":wireless.messaging.version",
+				"2.0", "javax.wireless.messaging.MessagePart",
+				"1.0", "javax.wireless.messaging.Message"	
+		});
 		api("JSR-135 MMAPI", new String[] {
 				"", ":microedition.media.version",
 				"YES", "javax.microedition.media.Manager"
@@ -157,7 +161,6 @@ public class A extends MIDlet implements CommandListener {
 		api("JSR-185 JTWI", new String[] {
 				"", ":microedition.jtwi.version"
 		});
-		api("JSR-205 WMA 2.0", "javax.wireless.messaging.MessagePart");
 		api("JSR-211 Content Handler", new String[] {
 				"", ":microedition.chapi.version",
 				"YES", "javax.microedition.content.ContentHandler"
