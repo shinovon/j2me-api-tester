@@ -1,0 +1,10 @@
+.settings
+.mtj.tmp
+deployed
+bin
+*.class
+*.jar
+.classpath
+.project
+.mtj
+build.properties
