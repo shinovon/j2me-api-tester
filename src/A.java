@@ -17,8 +17,7 @@ public class A extends MIDlet implements CommandListener {
 
 	protected void destroyApp(boolean unconditional) {}
 
-	protected void pauseApp() {
-	}
+	protected void pauseApp() {}
 
 	protected void startApp() {
 		if (started) return;
@@ -212,8 +211,8 @@ public class A extends MIDlet implements CommandListener {
 		api("Sprint Media", "com.sprintpcs.media.Player");
 		api("Pigler", "org.pigler.api.PiglerAPI");
 		// TODO other OEMs, v-appli
-		api("RMI", "java.rmi.Remote");
-		api("NIO", "java.nio.Buffer");
+		api("Java RMI", "java.rmi.Remote");
+		api("Java NIO", "java.nio.Buffer");
 
 		display.setCurrent(form);
 	}
@@ -273,8 +272,8 @@ public class A extends MIDlet implements CommandListener {
 		try {
 			Class.forName(s);
 			return true;
-		} catch (SecurityException e) {
-			return s.startsWith("com.jbed");
+//		} catch (SecurityException e) {
+//			return true;
 		} catch (Exception e) {
 			return false;
 		} catch (Error e) {
