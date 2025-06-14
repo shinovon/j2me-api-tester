@@ -195,6 +195,7 @@ public class A extends MIDlet implements CommandListener {
 		api("JSR-280 XML", "javax.xml.XMLConstants");
 //		api("JSR-281 IMS", "javax.microedition.ims.Service");
 		api("eSWT", "org.eclipse.ercp.swt.mobile.MobileShell");
+		// OEM
 		api("Mascot Capsule", "com.mascotcapsule.micro3d.v3.Graphics3D");
 		api("Nokia UI", new String[] {
 				// S60v3.2+, s60 with nokia ui v1.6+, asha
@@ -222,11 +223,17 @@ public class A extends MIDlet implements CommandListener {
 		});
 		api("Samsung", "com.samsung.util.AudioClip");
 		api("Sprint Media", "com.sprintpcs.media.Player");
+		api("Vodafone 1.0", "com.vodafone.v10.system.device.DeviceControl");
+		api("Vodafone 2.0", "com.vodafone.system.DeviceControl");
+		api("Siemens", "com.siemens.mp.NotAllowedException"); // TODO
+		api("RIM", "net.rim.device.api.system.Application"); // TODO versions
+		api("PantechAudio", "com.pantech.titan.PantechAudio");
 		api("Pigler", new String[] {
 				"", ":org.pigler.api.version",
 				"YES", "org.pigler.api.PiglerAPI"
 		});
 		// TODO other OEMs, v-appli
+		// Java
 		api("Java RMI", "java.rmi.Remote");
 		api("Java NIO", "java.nio.Buffer");
 
