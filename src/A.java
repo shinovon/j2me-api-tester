@@ -117,7 +117,7 @@ public class A extends MIDlet implements CommandListener {
 		});
 		api("MIDP", new String[] {
 				"3.0", "javax.microedition.lcdui.TabbedPane",
-				"2.1", ":microedition.profiles=2.1",
+				"2.1", ":microedition.profiles=MIDP-2.1",
 				"2.0", "javax.microedition.lcdui.Spacer",
 				"1.0"
 		});
@@ -158,7 +158,10 @@ public class A extends MIDlet implements CommandListener {
 				"", ":microedition.jtwi.version"
 		});
 		api("JSR-205 WMA 2.0", "javax.wireless.messaging.MessagePart");
-		api("JSR-211 Content Handler", "javax.microedition.content.ContentHandler");
+		api("JSR-211 Content Handler", new String[] {
+				"", ":microedition.chapi.version",
+				"YES", "javax.microedition.content.ContentHandler"
+		});
 		api("JSR-226 M2G", new String[] {
 				"", ":microedition.m2g.version",
 				"YES", "javax.microedition.m2g.ScalableGraphics"
@@ -187,7 +190,7 @@ public class A extends MIDlet implements CommandListener {
 		});
 		api("JSR-272 Broadcast", new String[] {
 				"", ":microedition.broadcast.version",
-				"YES", "javax.microedition.broadcast.BroadcastConnection"
+				"YES", "javax.microedition.broadcast.connection.BroadcastConnection"
 		});
 		api("JSR-280 XML", "javax.xml.XMLConstants");
 //		api("JSR-281 IMS", "javax.microedition.ims.Service");
