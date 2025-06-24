@@ -145,7 +145,7 @@ public class A extends MIDlet implements CommandListener {
 		api("JSR-177 APDU", "javax.microedition.apdu.APDUConnection");
 		api("JSR-177 Crypto", "javax.crypto.Cipher");
 		api("JSR-177 JCRMI", "javax.microedition.jcrmi.JavaCardRMIConnection");
-		api("JSR-177 PKI", "javax.microedition.pki.Certificate");
+		api("JSR-177 PKI", "javax.microedition.pki.UserCredentialManager");
 		api("JSR-179 Location", new String[] {
 				"", ":microedition.location.version",
 				"YES", "javax.microedition.location.Location"
