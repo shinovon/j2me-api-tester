@@ -178,6 +178,9 @@ public class A extends MIDlet implements CommandListener {
 				"YES", "javax.microedition.global.ResourceManager"
 		});
 		api("JSR-239 OpenGL ES", "javax.microedition.khronos.opengles.GL");
+		api("JSR-248 MSA", new String[] {
+				"",  ":microedition.msa.version"
+		});
 //		api("JSR-253 Telephony", "javax.microedition.telephony.Service");
 		api("JSR-256 Sensor", new String[] {
 				"", ":microedition.sensor.version",
