@@ -13,6 +13,7 @@ public class A extends MIDlet implements CommandListener {
 	static Font smallboldfont = Font.getFont(0, Font.STYLE_BOLD, Font.SIZE_SMALL);
 
 	private boolean started;
+	private boolean onlySupported;
 	private Form form;
 
 	protected void destroyApp(boolean unconditional) {}
@@ -23,11 +24,16 @@ public class A extends MIDlet implements CommandListener {
 		if (started) return;
 		started = true;
 		
+		init();
+	}
+	
+	void init() {
 		Display display = Display.getDisplay(this);
 		display.setCurrent(new Form("Loading"));
 		
 		form = new Form("api tester v" + getAppProperty("MIDlet-Version"));
 		form.addCommand(new Command("Exit", Command.EXIT, 0));
+		form.addCommand(new Command("Change view", Command.SCREEN, 1));
 		form.setCommandListener(this);
 		
 		form.append("microedition.platform: " + System.getProperty("microedition.platform") + "\n");
@@ -285,6 +291,7 @@ public class A extends MIDlet implements CommandListener {
 			r = "NO";
 			found = false;
 		}
+		if (!found && onlySupported) return;
 		StringItem s = new StringItem("", name + ": " + r + "\n");
 		s.setFont(found ? smallboldfont : smallplainfont);
 		form.append(s);
@@ -292,6 +299,7 @@ public class A extends MIDlet implements CommandListener {
 
 	void api(String name, String cls) {
 		boolean found = checkClass(cls);
+		if (!found && onlySupported) return;
 		StringItem s = new StringItem("", name + ": " + (found ? "YES" : "NO") + "\n");
 		s.setFont(found ? smallboldfont : smallplainfont);
 		form.append(s);
@@ -313,7 +321,13 @@ public class A extends MIDlet implements CommandListener {
 	}
 
 	public void commandAction(Command c, Displayable d) {
-		notifyDestroyed();
+		if (c.getCommandType() == Command.EXIT) {
+			notifyDestroyed();
+			return;
+		}
+		
+		onlySupported = !onlySupported;
+		init();
 	}
 
 }
