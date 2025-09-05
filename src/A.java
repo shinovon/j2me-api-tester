@@ -54,18 +54,6 @@ public class A extends MIDlet implements CommandListener {
 				sb.append(s);
 			} else if ((s = System.getProperty("com.oracle.jwc.version")) != null) {
 				sb.append("OJWC v").append(s).append(", Oracle");
-			} else if (checkClass("com.sun.cldchi.io.ConsoleOutputStream")
-					|| checkClass("com.sun.cldchi.jvm.JVM")) {
-				sb.append("CLDC Hotspot Implementation, Sun");
-			} else if (checkClass("com.sun.midp.io.InternalConnector")
-					|| checkClass("com.sun.midp.io.ConnectionBaseAdapter")
-					|| checkClass("com.sun.midp.Main")) {
-				sb.append("KVM, Sun (MIDP)");
-			} else if (checkClass("com.sun.cldc.util.j2me.CalendarImpl")
-					|| checkClass("com.sun.cldc.i18n.Helper")
-					|| checkClass("com.sun.cldc.io.ConsoleOutputStream")
-					|| checkClass("com.sun.cldc.i18n.uclc.DefaultCaseConverter")) {
-				sb.append("KVM, Sun (CLDC)");		    
 			} else if (checkClass("com.jblend.util.SortedVector")
 					|| checkClass("com.jblend.tck.socket2http.Protocol")
 					|| checkClass("com.jblend.io.j2me.resource.Protocol")
@@ -82,6 +70,18 @@ public class A extends MIDlet implements CommandListener {
 					|| checkClass("com.jbed.midp.lcdui.GameCanvas")
 					|| checkClass("com.jbed.microedition.media.Core")) {
 				sb.append("Jbed, Esmertec/Myriad Group");
+			} else if (checkClass("com.sun.cldchi.io.ConsoleOutputStream")
+					|| checkClass("com.sun.cldchi.jvm.JVM")) {
+				sb.append("CLDC Hotspot Implementation, Sun");
+			} else if (checkClass("com.sun.midp.io.InternalConnector")
+					|| checkClass("com.sun.midp.io.ConnectionBaseAdapter")
+					|| checkClass("com.sun.midp.Main")) {
+				sb.append("KVM, Sun (MIDP)");
+			} else if (checkClass("com.sun.cldc.util.j2me.CalendarImpl")
+					|| checkClass("com.sun.cldc.i18n.Helper")
+					|| checkClass("com.sun.cldc.io.ConsoleOutputStream")
+					|| checkClass("com.sun.cldc.i18n.uclc.DefaultCaseConverter")) {
+				sb.append("KVM, Sun (CLDC)");		    
 			} else if (checkClass("MahoTrans.IJavaObject")) {
 				sb.append("MahoTrans");
 			} else {
