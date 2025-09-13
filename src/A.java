@@ -9,6 +9,8 @@ import javax.microedition.midlet.MIDlet;
 
 public class A extends MIDlet implements CommandListener {
 	
+	private static final boolean headless = false;
+	
 	static Font smallplainfont = Font.getFont(0, 0, Font.SIZE_SMALL);
 	static Font smallboldfont = Font.getFont(0, Font.STYLE_BOLD, Font.SIZE_SMALL);
 
@@ -29,16 +31,22 @@ public class A extends MIDlet implements CommandListener {
 	
 	void init() {
 		Display display = Display.getDisplay(this);
-		display.setCurrent(new Form("Loading"));
-		
-		form = new Form("api tester v" + getAppProperty("MIDlet-Version"));
-		form.addCommand(new Command("Exit", Command.EXIT, 0));
-		form.addCommand(new Command("Change view", Command.SCREEN, 1));
-		form.setCommandListener(this);
-		
-		form.append("microedition.platform: " + System.getProperty("microedition.platform") + "\n");
-		
-		form.append("JVM:\n");
+		if (!headless) {
+			display.setCurrent(new Form("Loading"));
+			
+			form = new Form("api tester v" + getAppProperty("MIDlet-Version"));
+			form.addCommand(new Command("Exit", Command.EXIT, 0));
+			form.addCommand(new Command("Change view", Command.SCREEN, 1));
+			form.setCommandListener(this);
+			
+			form.append("microedition.platform: " + System.getProperty("microedition.platform") + "\n");
+			
+			form.append("JVM:\n");
+		} else {
+			System.out.println("api tester v" + getAppProperty("MIDlet-Version"));
+			System.out.println("microedition.platform: " + System.getProperty("microedition.platform"));
+			System.out.println("JVM:");
+		}
 		{
 			String s;
 			StringBuffer sb = new StringBuffer();
@@ -99,12 +107,19 @@ public class A extends MIDlet implements CommandListener {
 			if ((s = System.getProperty("os.name")) != null) {
 				sb.append('\n').append(s).append(' ').append(System.getProperty("os.version")).append(' ').append(System.getProperty("os.arch"));
 			}
-			StringItem i = new StringItem("", sb.append('\n').toString());
-			i.setFont(smallplainfont);
-			form.append(i);
+			if (headless) {
+				System.out.println(sb);
+			} else {
+				StringItem i = new StringItem("", sb.append('\n').toString());
+				i.setFont(smallplainfont);
+				form.append(i);
+			}
 		}
-		
-		form.append("API:\n");
+		if (headless) {
+			System.out.println("API:");
+		} else {
+			form.append("API:\n");
+		}
 		
 		api("Configuration", new String[] {
 				"JDK 1.8", "java.util.Base64",
@@ -258,7 +273,7 @@ public class A extends MIDlet implements CommandListener {
 		api("Java RMI", "java.rmi.Remote");
 		api("Java NIO", "java.nio.Buffer");
 
-		display.setCurrent(form);
+		if (!headless) display.setCurrent(form);
 	}
 	
 	void api(String name, String[] map) {
@@ -301,6 +316,10 @@ public class A extends MIDlet implements CommandListener {
 			found = false;
 		}
 		if (!found && onlySupported) return;
+		if (headless) {
+			System.out.println(name + ": " + r);
+			return;
+		}
 		StringItem s = new StringItem("", name + ": " + r + "\n");
 		s.setFont(found ? smallboldfont : smallplainfont);
 		form.append(s);
@@ -309,6 +328,10 @@ public class A extends MIDlet implements CommandListener {
 	void api(String name, String cls) {
 		boolean found = checkClass(cls);
 		if (!found && onlySupported) return;
+		if (headless) {
+			System.out.println(name + ": " + (found ? "YES" : "NO"));
+			return;
+		}
 		StringItem s = new StringItem("", name + ": " + (found ? "YES" : "NO") + "\n");
 		s.setFont(found ? smallboldfont : smallplainfont);
 		form.append(s);
