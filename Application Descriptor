@@ -1,5 +1,5 @@
 MIDlet-Vendor: nnproject
-MIDlet-Version: 0.7.7
+MIDlet-Version: 0.7.8
 MIDlet-Info-URL: https://github.com/shinovon/j2me-api-tester
 MicroEdition-Configuration: CLDC-1.0
 MIDlet-Name: j2me api tester
