@@ -68,6 +68,8 @@ public class A extends MIDlet implements CommandListener {
 				sb.append(s);
 			} else if ((s = System.getProperty("com.oracle.jwc.version")) != null) {
 				sb.append("OJWC v").append(s).append(", Oracle");
+			} else if (checkClass("org.mozilla.internal.Sys")) {
+				sb.append("PluotSorbet, Mozilla");
 			} else if (checkClass("com.jblend.util.SortedVector")
 					|| checkClass("com.jblend.tck.socket2http.Protocol")
 					|| checkClass("com.jblend.io.j2me.resource.Protocol")
@@ -339,8 +341,8 @@ public class A extends MIDlet implements CommandListener {
 	
 	static boolean checkClass(String s) {
 		try {
-			Class.forName(s);
-			return true;
+			// pluotsorbet returns null instead of throwing ClassNotFoundException
+			return Class.forName(s) != null;
 //		} catch (SecurityException e) {
 //			return true;
 		} catch (Exception e) {
