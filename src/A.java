@@ -273,7 +273,10 @@ public class A extends MIDlet implements CommandListener {
 		// TODO other OEMs, v-appli
 		// Java
 		api("Java RMI", "java.rmi.Remote");
-		api("Java NIO", "java.nio.Buffer");
+		api("Java NIO", new String[] {
+				"YES", "java.nio.DoubleBuffer",
+				"Subset", "java.nio.Buffer"
+		});
 
 		if (!headless) display.setCurrent(form);
 	}
