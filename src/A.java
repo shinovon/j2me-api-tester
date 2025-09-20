@@ -201,6 +201,7 @@ public class A extends MIDlet implements CommandListener {
 				"", ":microedition.m2g.version",
 				"YES", "javax.microedition.m2g.ScalableGraphics"
 		});
+		api("JSR-229 Payment", "javax.microedition.payment.TransactionModule");
 		api("JSR-234 AMMS", new String[] {
 				"", ":microedition.amms.version",
 				"YES", "javax.microedition.amms.GlobalManager"
