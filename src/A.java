@@ -233,6 +233,7 @@ public class A extends MIDlet implements CommandListener {
 		});
 		api("JSR-280 XML", "javax.xml.XMLConstants");
 //		api("JSR-281 IMS", "javax.microedition.ims.Service");
+		api("JSR-300 DRM", "javax.microedition.drm.DRMManager");
 		api("eSWT", "org.eclipse.ercp.swt.mobile.MobileShell");
 		// OEM
 		api("Mascot Capsule", "com.mascotcapsule.micro3d.v3.Graphics3D");
