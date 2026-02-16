@@ -96,7 +96,8 @@ public class A extends MIDlet implements CommandListener {
 			} else if (checkClass("com.sun.cldc.util.j2me.CalendarImpl")
 					|| checkClass("com.sun.cldc.i18n.Helper")
 					|| checkClass("com.sun.cldc.io.ConsoleOutputStream")
-					|| checkClass("com.sun.cldc.i18n.uclc.DefaultCaseConverter")) {
+					|| checkClass("com.sun.cldc.i18n.uclc.DefaultCaseConverter")
+					|| checkClass("com.sun.kvm.io.ConsoleOutputStream")) {
 				sb.append("KVM, Sun (CLDC)");		    
 			} else if (checkClass("MahoTrans.IJavaObject")) {
 				sb.append("MahoTrans");
