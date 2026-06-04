@@ -15,7 +15,7 @@ public class A extends MIDlet implements CommandListener {
 	static Font smallboldfont = Font.getFont(0, Font.STYLE_BOLD, Font.SIZE_SMALL);
 
 	private boolean started;
-	private boolean onlySupported;
+	private boolean onlySupported = true;
 	private Form form;
 
 	protected void destroyApp(boolean unconditional) {}
