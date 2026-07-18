@@ -162,7 +162,8 @@ public class A extends MIDlet implements CommandListener {
 		});
 		api("JSR-135 MMAPI", new String[] {
 				"", ":microedition.media.version",
-				"YES", "javax.microedition.media.control.RecordControl"
+				"YES", "javax.microedition.media.control.RecordControl",
+				"Subset", "javax.microedition.media.Manager"
 		});
 		api("JSR-172 RPC", "javax.microedition.xml.rpc.Type");
 		api("JSR-172 XML Parser", "javax.xml.parsers.SAXParser");
