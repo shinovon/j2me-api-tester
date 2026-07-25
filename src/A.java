@@ -2,7 +2,6 @@ import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Display;
 import javax.microedition.lcdui.Displayable;
-import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Form;
 import javax.microedition.lcdui.StringItem;
 import javax.microedition.midlet.MIDlet;
@@ -11,8 +10,8 @@ public class A extends MIDlet implements CommandListener {
 	
 	private static final boolean headless = false;
 	
-	static Font smallplainfont = Font.getFont(0, 0, Font.SIZE_SMALL);
-	static Font smallboldfont = Font.getFont(0, Font.STYLE_BOLD, Font.SIZE_SMALL);
+//	static Font smallplainfont = Font.getFont(0, 0, Font.SIZE_SMALL);
+//	static Font smallboldfont = Font.getFont(0, Font.STYLE_BOLD, Font.SIZE_SMALL);
 
 	private boolean started;
 	private boolean onlySupported = true;
@@ -76,7 +75,8 @@ public class A extends MIDlet implements CommandListener {
 					|| checkClass("com.jblend.security.midp20.SecurityManagerImpl")
 					|| checkClass("com.jblend.security.midp20.UserConfirmDialogImpl")
 					|| checkClass("jp.co.aplix.cldc.io.MIDPURLChecker")
-					|| checkClass("jp.co.aplix.cldc.io.j2me.http.HttpConnectionImpl")) {
+					|| checkClass("jp.co.aplix.cldc.io.j2me.http.HttpConnectionImpl")
+					|| checkClass("com.jblend.extlib.Initializable")) {
 				sb.append("JBlend, Aplix");
 			} else if (checkClass("com.jbed.io.CharConvUTF8")
 					|| checkClass("com.jbed.runtime.MemSupport")
@@ -114,7 +114,7 @@ public class A extends MIDlet implements CommandListener {
 				System.out.println(sb);
 			} else {
 				StringItem i = new StringItem("", sb.append('\n').toString());
-				i.setFont(smallplainfont);
+//				i.setFont(smallplainfont);
 				form.append(i);
 			}
 		}
@@ -259,17 +259,17 @@ public class A extends MIDlet implements CommandListener {
 		api("Nokia LocationUtil", "com.nokia.mid.location.LocationUtil");
 		api("Nokia SMS", "com.nokia.mid.messaging.Message");
 		api("Nokia M3D", "com.nokia.mid.m3d.M3D");
+		api("PantechAudio", "com.pantech.titan.PantechAudio");
 		api("Project Capuchin", new String[] {
 				"", ":com.sonyericsson.capuchin.version",
 				"YES", "com.sonyericsson.capuchin.FlashCanvas"
 		});
+		api("RIM", "net.rim.device.api.system.Application"); // TODO versions
 		api("Samsung", "com.samsung.util.AudioClip");
 		api("Sprint Media", "com.sprintpcs.media.Player");
 		api("Vodafone 1.0", "com.vodafone.v10.system.device.DeviceControl");
 		api("Vodafone 2.0", "com.vodafone.system.DeviceControl");
 		api("Siemens", "com.siemens.mp.NotAllowedException"); // TODO
-		api("RIM", "net.rim.device.api.system.Application"); // TODO versions
-		api("PantechAudio", "com.pantech.titan.PantechAudio");
 		api("Pigler", new String[] {
 				"", ":org.pigler.api.version",
 				"YES", "org.pigler.api.PiglerAPI"
@@ -330,7 +330,7 @@ public class A extends MIDlet implements CommandListener {
 			return;
 		}
 		StringItem s = new StringItem("", name + ": " + r + "\n");
-		s.setFont(found ? smallboldfont : smallplainfont);
+//		s.setFont(found ? smallboldfont : smallplainfont);
 		form.append(s);
 	}
 
@@ -342,7 +342,7 @@ public class A extends MIDlet implements CommandListener {
 			return;
 		}
 		StringItem s = new StringItem("", name + ": " + (found ? "YES" : "NO") + "\n");
-		s.setFont(found ? smallboldfont : smallplainfont);
+//		s.setFont(found ? smallboldfont : smallplainfont);
 		form.append(s);
 	}
 	
