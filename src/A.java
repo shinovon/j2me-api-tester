@@ -89,15 +89,20 @@ public class A extends MIDlet implements CommandListener {
 			} else if (checkClass("com.sun.cldchi.io.ConsoleOutputStream")
 					|| checkClass("com.sun.cldchi.jvm.JVM")) {
 				sb.append("CLDC Hotspot Implementation, Sun");
+				if (checkClass("javax.microedition.midlet.MIDletTunnelImpl")) {
+					sb.append(" (phoneME)");
+				}
 			} else if (checkClass("com.arm.cldc.mas.GlobalLock")) {
 				sb.append("KVM, ARM/Sun");
+			} else if (checkClass("com.sun.kvem.DeviceConfiguration")) {
+				sb.append("KVM, Sun (KVEM)");
 			} else if (checkClass("com.sun.midp.Main")
 					|| checkClass("com.sun.midp.main.Main")) {
 				sb.append("KVM, Sun (MIDP)");
 			} else if (checkClass("com.sun.midp.io.SystemOutputStream")
 					|| checkClass("com.sun.midp.io.InternalConnector")
 					|| checkClass("com.sun.midp.io.ConnectionBaseAdapter")) {
-				sb.append("KVM, Sun (Partial MIDP)");
+				sb.append("KVM, Sun (CLDC + MIDP IO)");
 			} else if (checkClass("com.sun.cldc.util.j2me.CalendarImpl")
 					|| checkClass("com.sun.cldc.i18n.Helper")
 					|| checkClass("com.sun.cldc.io.ConsoleOutputStream")
