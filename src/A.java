@@ -89,8 +89,11 @@ public class A extends MIDlet implements CommandListener {
 			} else if (checkClass("com.sun.cldchi.io.ConsoleOutputStream")
 					|| checkClass("com.sun.cldchi.jvm.JVM")) {
 				sb.append("CLDC Hotspot Implementation, Sun");
-			} else if (checkClass("com.sun.midp.io.InternalConnector")
-					|| checkClass("com.sun.midp.io.ConnectionBaseAdapter")
+			} else if (checkClass("com.arm.cldc.mas.GlobalLock")) {
+				sb.append("KVM, ARM/Sun");
+			} else if (checkClass("com.sun.midp.io.SystemOutputStream")
+//					|| checkClass("com.sun.midp.io.InternalConnector")
+//					|| checkClass("com.sun.midp.io.ConnectionBaseAdapter")
 					|| checkClass("com.sun.midp.Main")) {
 				sb.append("KVM, Sun (MIDP)");
 			} else if (checkClass("com.sun.cldc.util.j2me.CalendarImpl")
@@ -130,9 +133,9 @@ public class A extends MIDlet implements CommandListener {
 				"JDK 1.6", "java.util.Deque",
 				"JDK 1.5", "java.lang.Enum",
 				"JDK 1.4", "java.util.regex.Pattern",
-				"JDK 1.3", "java.lang.Terminator",
-				"JDK 1.2", "java.lang.Compiler",
-				"JDK 1.0", "java.util.Observer",
+				//"JDK 1.3", "java.lang.Terminator", // apparently these are available in foundation profile
+				//"JDK 1.2", "java.lang.Compiler",
+				//"JDK 1.0", "java.util.Observer",
 				"CDC 1.1", "java.lang.CharSequence",
 				"CDC 1.0", "java.lang.SecurityManager",
 				"CLDC 1.1.1", "java.security.Permission",
