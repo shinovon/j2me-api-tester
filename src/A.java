@@ -91,11 +91,13 @@ public class A extends MIDlet implements CommandListener {
 				sb.append("CLDC Hotspot Implementation, Sun");
 			} else if (checkClass("com.arm.cldc.mas.GlobalLock")) {
 				sb.append("KVM, ARM/Sun");
-			} else if (checkClass("com.sun.midp.io.SystemOutputStream")
-//					|| checkClass("com.sun.midp.io.InternalConnector")
-//					|| checkClass("com.sun.midp.io.ConnectionBaseAdapter")
-					|| checkClass("com.sun.midp.Main")) {
+			} else if (checkClass("com.sun.midp.Main")
+					|| checkClass("com.sun.midp.main.Main")) {
 				sb.append("KVM, Sun (MIDP)");
+			} else if (checkClass("com.sun.midp.io.SystemOutputStream")
+					|| checkClass("com.sun.midp.io.InternalConnector")
+					|| checkClass("com.sun.midp.io.ConnectionBaseAdapter")) {
+				sb.append("KVM, Sun (Partial MIDP)");
 			} else if (checkClass("com.sun.cldc.util.j2me.CalendarImpl")
 					|| checkClass("com.sun.cldc.i18n.Helper")
 					|| checkClass("com.sun.cldc.io.ConsoleOutputStream")
