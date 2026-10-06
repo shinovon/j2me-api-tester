@@ -253,7 +253,7 @@ public class A extends MIDlet implements CommandListener {
 				// S60v3.2+, s40 with nokia ui v1.6+, asha
 				"", ":com.nokia.mid.ui.version",
 				"1.6", "com.nokia.mid.ui.VirtualKeyboard",
-				"1.4", "com.nokia.mid.ui.SoftNotification",
+				"1.4", "com.nokia.mid.ui.TextEditor",
 				// S40v6+
 				"1.1c", ":com.nokia.mid.ui.customfontsize",
 				"1.1b", "com.nokia.mid.ui.Clipboard",
